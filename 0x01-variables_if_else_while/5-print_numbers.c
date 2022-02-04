@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  *main - print number 0 - 9
- *return: 0
+ *Return: 0
  */
 int main(void)
 {
