@@ -11,11 +11,12 @@ int main(void)
 {
 	int i;
 	long int n, m;
+
 	n = 1;
 	printf("%ld, ", n);
 	m = 1;
 
-	for (i = 0; i <= 50; i++)
+	for (i = 0; i < 49; i++)
 	{
 		if (i % 2 == 0)
 		{
@@ -28,7 +29,7 @@ int main(void)
 			printf("%ld", m);
 		}
 
-		if (i != 50)
+		if (i != 48)
 		{
 			printf(", ");
 		}
