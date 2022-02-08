@@ -81,7 +81,6 @@ int main(void)
 				fib2 = fib2 % 10000000000;
 				break;
 			}
-
 		}
 		else
 		{
@@ -98,5 +97,6 @@ int main(void)
 			}
 		}
 	}
+	print_two_long(i, fib1, fib2, fib3, fib4);
 	return (0);
 }
