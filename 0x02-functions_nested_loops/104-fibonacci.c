@@ -31,13 +31,15 @@ void print_two_long(int i,
 		}
 
 
-		if (fib2 > 10000000000)
+		if (fib2 > 1000000000)
 		{
-			fib1 = fib1 + (fib2 / 10000000000);
+			fib1 = fib1 + (fib2 / 1000000000);
+			fib2 = fib2 % 1000000000;
 		}
-		else if (fib4 > 10000000000)
+		else if (fib4 > 1000000000)
 		{
-			fib3 = fib3 + (fib4 / 10000000000);
+			fib3 = fib3 + (fib4 / 1000000000);
+			fib4 = fib4 % 1000000000;
 		}
 
 		if (i % 2 == 0)
@@ -48,7 +50,11 @@ void print_two_long(int i,
 		{
 			printf("%lu%lu", fib3, fib4);
 		}
-		printf(", ");
+
+		if (i != 95)
+		{
+			printf(", ");
+		}
 	}
 }
 
@@ -73,12 +79,12 @@ int main(void)
 		{
 			fib1 = fib1 + fib2;
 			printf("%lu, ", fib1);
-			if (fib1 > 10000000000)
+			if (fib1 > 1000000000)
 			{
-				fib4 = fib1 % 10000000000;
-				fib3 = fib1 / 10000000000;
-				fib1 = fib2 / 10000000000;
-				fib2 = fib2 % 10000000000;
+				fib4 = fib1 % 1000000000;
+				fib3 = fib1 / 1000000000;
+				fib1 = fib2 / 1000000000;
+				fib2 = fib2 % 1000000000;
 				break;
 			}
 		}
@@ -86,12 +92,12 @@ int main(void)
 		{
 			fib2 = fib1 + fib2;
 			printf("%lu, ", fib2);
-			if (fib2 > 10000000000)
+			if (fib2 > 1000000000)
 			{
-				fib4 = fib2 % 10000000000;
-				fib3 = fib2 / 10000000000;
-				fib2 = fib1 % 10000000000;
-				fib1 = fib1 / 10000000000;
+				fib4 = fib2 % 1000000000;
+				fib3 = fib2 / 1000000000;
+				fib2 = fib1 % 1000000000;
+				fib1 = fib1 / 1000000000;
 				break;
 			}
 		}
