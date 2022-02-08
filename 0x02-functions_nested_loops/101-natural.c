@@ -27,4 +27,6 @@ int main(void)
 	}
 
 	printf("%d\n", compteur);
+
+	return (0);
 }
