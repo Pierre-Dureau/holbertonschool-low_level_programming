@@ -42,12 +42,13 @@ void print_two_long(int i,
 
 		if (i % 2 == 0)
 		{
-			printf("%lu%lu\n", fib1, fib2);
+			printf("%lu%lu", fib1, fib2);
 		}
 		else
 		{
-			printf("%lu%lu\n", fib3, fib4);
+			printf("%lu%lu", fib3, fib4);
 		}
+		printf(", ");
 	}
 }
 
@@ -63,7 +64,7 @@ int main(void)
 	unsigned long fib1, fib2, fib3, fib4;
 
 	fib1 = 1;
-	printf("%lu\n", fib1);
+	printf("%lu, ", fib1);
 	fib2 = 1;
 
 	for (i = 0; i < 97; i++)
@@ -71,8 +72,7 @@ int main(void)
 		if (i % 2 == 0)
 		{
 			fib1 = fib1 + fib2;
-			printf("%lu\n", fib1);
-
+			printf("%lu, ", fib1);
 			if (fib1 > 10000000000)
 			{
 				fib4 = fib1 % 10000000000;
@@ -85,8 +85,7 @@ int main(void)
 		else
 		{
 			fib2 = fib1 + fib2;
-			printf("%lu\n", fib2);
-
+			printf("%lu, ", fib2);
 			if (fib2 > 10000000000)
 			{
 				fib4 = fib2 % 10000000000;
@@ -98,5 +97,6 @@ int main(void)
 		}
 	}
 	print_two_long(i, fib1, fib2, fib3, fib4);
+	printf("\n");
 	return (0);
 }
