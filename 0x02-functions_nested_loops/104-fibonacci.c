@@ -13,7 +13,7 @@ int main(void)
 	unsigned long n, m;
 
 	n = 1;
-	printf("%lu", n);
+	printf("%lu, ", n);
 	m = 1;
 
 	for (i = 0; i < 97; i++)
