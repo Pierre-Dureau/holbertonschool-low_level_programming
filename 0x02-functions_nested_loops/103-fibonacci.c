@@ -24,7 +24,6 @@ int main(void)
 			if (n % 2 == 0)
 			{
 				p += n;
-				printf("%ld, ", p);
 			}
 		}
 		else
@@ -33,13 +32,12 @@ int main(void)
 			if (m % 2 == 0)
 			{
 				p += m;
-				printf("%ld, ", p);
 			}
 		}
 		i++;
 	}
 
-	printf("\n");
+	printf("%ld\n", p);
 
 	return (0);
 }
