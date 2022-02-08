@@ -14,9 +14,9 @@ int print_last_digit(int n)
 
 	n = abs(n);
 	r = n % 10;
-	if (r == -2147483647 - 1)
+	if (n == -2147483648)
 	{
-		r++;
+		r == 8;
 	}
 
 	_putchar(r + '0');
