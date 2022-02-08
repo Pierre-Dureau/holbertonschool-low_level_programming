@@ -2,9 +2,9 @@
 #include "main.h"
 
 /**
- * _abs -
+ * _abs - Return the absolute value
  *
- * Return:
+ * Return: n
  */
 
 int _abs(int n)
