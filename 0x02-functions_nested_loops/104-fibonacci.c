@@ -1,108 +1,52 @@
-#include "main.h"
 #include <stdio.h>
+#include "main.h"
 
 /**
- * print_two_long - print the Fibonacci value with a 2 longs
- *
- * @i: compteur de la liste
- * @fib1: surplus du 1er long
- * @fib2: 1er long
- * @fib3: surplus du 2eme long
- * @fib4: 2eme long
- */
-
-void print_two_long(int i,
-					unsigned long fib1,
-					unsigned long fib2,
-					unsigned long fib3,
-					unsigned long fib4)
-{
-	for (i = i; i < 96; i++)
-	{
-		if (i % 2 == 0)
-		{
-			fib1 = fib1 + fib3;
-			fib2 = fib2 + fib4;
-		}
-		else
-		{
-			fib3 = fib3 + fib1;
-			fib4 = fib4 + fib2;
-		}
-
-
-		if (fib2 > 1000000000)
-		{
-			fib1 = fib1 + (fib2 / 1000000000);
-			fib2 = fib2 % 1000000000;
-		}
-		else if (fib4 > 1000000000)
-		{
-			fib3 = fib3 + (fib4 / 1000000000);
-			fib4 = fib4 % 1000000000;
-		}
-
-		if (i % 2 == 0)
-		{
-			printf("%lu%lu", fib1, fib2);
-		}
-		else
-		{
-			printf("%lu%lu", fib3, fib4);
-		}
-
-		if (i != 95)
-		{
-			printf(", ");
-		}
-	}
-}
-
-/**
- * main - Print the first 98 Fibonacci numbers
+ * main - Prints the first 98 Fibonacci numbers
  *
  * Return: 0
  */
 
 int main(void)
 {
-	int i;
-	unsigned long fib1, fib2, fib3, fib4;
+	int count;
+	unsigned long fib1 = 0, fib2 = 1, sum;
+	unsigned long fib1_gauche, fib1_droite, fib2_gauche, fib2_droite;
+	unsigned long gauche, droite;
 
-	fib1 = 1;
-	printf("%lu, ", fib1);
-	fib2 = 1;
-
-	for (i = 0; i < 97; i++)
+	for (count = 0; count < 92; count++)
 	{
-		if (i % 2 == 0)
-		{
-			fib1 = fib1 + fib2;
-			printf("%lu, ", fib1);
-			if (fib1 > 1000000000)
-			{
-				fib4 = fib1 % 1000000000;
-				fib3 = fib1 / 1000000000;
-				fib1 = fib2 / 1000000000;
-				fib2 = fib2 % 1000000000;
-				break;
-			}
-		}
-		else
-		{
-			fib2 = fib1 + fib2;
-			printf("%lu, ", fib2);
-			if (fib2 > 1000000000)
-			{
-				fib4 = fib2 % 1000000000;
-				fib3 = fib2 / 1000000000;
-				fib2 = fib1 % 1000000000;
-				fib1 = fib1 / 1000000000;
-				break;
-			}
-		}
+		sum = fib1 + fib2;
+		printf("%lu, ", sum);
+
+		fib1 = fib2;
+		fib2 = sum;
 	}
-	print_two_long(i, fib1, fib2, fib3, fib4);
+
+	fib1_gauche = fib1 / 10000000000;
+	fib2_gauche = fib2 / 10000000000;
+	fib1_droite = fib1 % 10000000000;
+	fib2_droite = fib2 % 10000000000;
+
+	for (count = 93; count < 99; count++)
+	{
+		gauche = fib1_gauche + fib2_gauche;
+		droite = fib1_droite + fib2_droite;
+		if (fib1_droite + fib2_droite > 9999999999)
+		{
+			gauche = gauche + 1;
+			droite = droite % 10000000000;
+		}
+
+		printf("%lu%lu", gauche, droite);
+		if (count != 98)
+			printf(", ");
+
+		fib1_gauche = fib2_gauche;
+		fib1_droite = fib2_droite;
+		fib2_gauche = gauche;
+		fib2_droite = droite;
+	}
 	printf("\n");
 	return (0);
 }
