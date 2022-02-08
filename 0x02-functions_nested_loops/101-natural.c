@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * @brief
+ * main - Print sum of multiple of 3 or 5
  *
  * Return: 0
  */
