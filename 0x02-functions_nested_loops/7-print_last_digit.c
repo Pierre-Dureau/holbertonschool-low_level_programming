@@ -16,7 +16,7 @@ int print_last_digit(int n)
 	r = n % 10;
 	if (n == -2147483648)
 	{
-		r == 8;
+		r = 8;
 	}
 
 	_putchar(r + '0');
