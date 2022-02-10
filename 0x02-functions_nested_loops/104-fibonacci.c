@@ -9,12 +9,12 @@
 
 int main(void)
 {
-	int count;
+	int i;
 	unsigned long fib1 = 0, fib2 = 1, sum;
 	unsigned long fib1_gauche, fib1_droite, fib2_gauche, fib2_droite;
 	unsigned long gauche, droite;
 
-	for (count = 0; count < 92; count++)
+	for (i = 0; i < 92; i++)
 	{
 		sum = fib1 + fib2;
 		printf("%lu, ", sum);
@@ -28,7 +28,7 @@ int main(void)
 	fib1_droite = fib1 % 10000000000;
 	fib2_droite = fib2 % 10000000000;
 
-	for (count = 93; count < 99; count++)
+	for (i = 93; i < 99; i++)
 	{
 		gauche = fib1_gauche + fib2_gauche;
 		droite = fib1_droite + fib2_droite;
@@ -39,7 +39,7 @@ int main(void)
 		}
 
 		printf("%lu%lu", gauche, droite);
-		if (count != 98)
+		if (i != 98)
 			printf(", ");
 
 		fib1_gauche = fib2_gauche;
