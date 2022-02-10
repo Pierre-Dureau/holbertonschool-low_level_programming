@@ -4,7 +4,7 @@
 /**
  * _isdigit - Check if the int is a digit
  *
- * @n:The integer
+ * @c: The integer
  * Return: 1 on success
  */
 
