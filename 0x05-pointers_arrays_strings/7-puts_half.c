@@ -31,14 +31,19 @@ void puts_half(char *str)
 
 	len = _strlen(str);
 
-	for (i = 0; i < len / 2; i++)
+	if (len % 2 == 0)
 	{
-		str++;
+		for (i = 0; i < len / 2; i++)
+		{
+			str++;
+		}
 	}
-
-	if (len % 2 != 0)
+	else
 	{
-		str++;
+		for (i = 0; i < (len + 1) / 2; i++)
+		{
+			str++;
+		}
 	}
 
 	for (i = i; i < len; i++)
