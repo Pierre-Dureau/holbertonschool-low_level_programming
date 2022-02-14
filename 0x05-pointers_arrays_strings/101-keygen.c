@@ -10,7 +10,7 @@
 
 int main()
 {
-	char val;
+	int val;
 	int sum = 0;
 
 	srand(time(NULL));
@@ -18,7 +18,7 @@ int main()
 	while (sum < 2646)
 	{
 		val = rand() % 126 + 1;
-		sum =+ val;
+		sum += val;
 		printf("%c", val);
 	}
 
