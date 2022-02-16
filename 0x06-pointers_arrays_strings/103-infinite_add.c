@@ -23,7 +23,10 @@ int _strlen(char *s)
 /**
  * addNum - Add the 2 strings of int
  *
- *
+ *@n1: First string
+ *@n2: Second string
+ *@r: The final string
+ *@i: Index of the current number of the strings
  *
  * Return: The result of the addition
  */
@@ -84,7 +87,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	lg2 = _strlen(n2);
 	first_digit = (*n1 - '0') + (*n2 - '0');
 
-	if ((lg1 >= size_r - 1 && first_digit > 9) || (lg2 >= size_r - 1 && first_digit > 9)
+	if ((lg1 >= size_r - 1 && first_digit > 9)
+	 || (lg2 >= size_r - 1 && first_digit > 9)
 	 || (lg1 == size_r) || (lg2 == size_r))
 	{
 		return (0);
