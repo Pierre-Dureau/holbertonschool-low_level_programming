@@ -11,34 +11,19 @@
 char *leet(char *str)
 {
 	char *p = str;
+	char let[10] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L'};
+	char nb[5] = {'4', '3', '0', '1', '7'};
+	int i;
 
 	while (*str != '\0')
 	{
-		if (*str == 'a' || *str == 'A')
+		for (i = 0; i < 10; i++)
 		{
-			*str = '4';
+			if (*str == let[i])
+			{
+				*str = nb[i / 2];
+			}
 		}
-
-		if (*str == 'e' || *str == 'E')
-		{
-			*str = '3';
-		}
-
-		if (*str == 'o' || *str == 'O')
-		{
-			*str = '0';
-		}
-
-		if (*str == 't' || *str == 'T')
-		{
-			*str = '7';
-		}
-
-		if (*str == 'l' || *str == 'L')
-		{
-			*str = '1';
-		}
-
 		str++;
 	}
 
