@@ -13,6 +13,12 @@ char *cap_string(char *str)
 	char *p = str;
 	int maj = 0;
 
+	if (*str >= 'a' && *str <= 'z')
+	{
+		*str = *str - ' ';
+	}
+
+
 	while (*str != '\0')
 	{
 		if (*str == ' ' || *str == '\t' || *str == '\n' || *str == ',' || *str == ';'
