@@ -51,7 +51,6 @@ void print_buffer(char *b, int size)
 			printf("0");
 		printf("%x: ", hexa);
 		hexa += 10;
-
 		for (j = 0; j < 10; j++)
 		{
 			if ((hexa + j) < (size + 10))
@@ -62,7 +61,6 @@ void print_buffer(char *b, int size)
 				printf(" ");
 			b++;
 		}
-
 		for (j = 0; j < 10; j++)
 			b--;
 
@@ -75,6 +73,8 @@ void print_buffer(char *b, int size)
 				else
 					printf(".");
 			}
+			else
+				break;
 			b++;
 		}
 		printf("\n");
