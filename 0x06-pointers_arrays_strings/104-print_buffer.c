@@ -11,10 +11,9 @@
 
 void print_buffer(char *b, int size)
 {
-	int i, j, count;
-	char *p = b;
+	int i, j;
+	int count = 0;
 
-	count = 0;
 	if (size <= 0)
 		printf("\n");
 	else
@@ -49,5 +48,4 @@ void print_buffer(char *b, int size)
 			printf("\n");
 		}
 	}
-	b = p;
 }
