@@ -12,7 +12,7 @@ char *leet(char *str)
 {
 	char *p = str;
 	char let[10] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L'};
-	char nb[5] = {'4', '3', '0', '1', '7'};
+	char nb[5] = {'4', '3', '0', '7', '1'};
 	int i;
 
 	while (*str != '\0')
