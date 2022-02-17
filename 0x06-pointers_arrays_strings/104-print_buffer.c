@@ -11,11 +11,10 @@
 
 void print_buffer(char *b, int size)
 {
-	int i, j;
-	int count;
+	int i, j, count;
+	char *p = b;
 
 	count = 0;
-
 	if (size <= 0)
 		printf("\n");
 	else
@@ -23,11 +22,9 @@ void print_buffer(char *b, int size)
 		for (i = 0; i <= size / 10; i++)
 		{
 			printf("%08x: ", count);
-			count += 10;
-
 			for (j = 0; j < 10; j++)
 			{
-				if ((count + j) < (size + 10))
+				if ((count + j) < size)
 					printf("%02x", *b);
 				else
 					printf("  ");
@@ -35,13 +32,11 @@ void print_buffer(char *b, int size)
 					printf(" ");
 				b++;
 			}
-
 			for (j = 0; j < 10; j++)
 				b--;
-
 			for (j = 0; j < 10; j++)
 			{
-				if ((count + j) < (size + 10))
+				if ((count + j) < size)
 				{
 					if (isprint(*b))
 						printf("%c", *b);
@@ -50,7 +45,9 @@ void print_buffer(char *b, int size)
 				}
 				b++;
 			}
+			count += 10;
 			printf("\n");
 		}
 	}
+	b = p;
 }
