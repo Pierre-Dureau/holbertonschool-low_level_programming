@@ -22,11 +22,6 @@ char *cap_string(char *str)
 			maj = 2;
 		}
 
-		if (*str == '\t')
-		{
-			*str = ' ';
-		}
-
 		if ((maj == 1) && (*str > 'z' || *str < 'a'))
 		{
 			maj = 0;
