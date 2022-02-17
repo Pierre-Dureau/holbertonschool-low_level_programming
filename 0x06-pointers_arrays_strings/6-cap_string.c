@@ -19,7 +19,12 @@ char *cap_string(char *str)
 		 || *str == '.' || *str == '!' || *str == '?' || *str == '"' || *str == '('
 		 || *str == ')' || *str == '{' || *str == '}')
 		{
-			maj = 1;
+			maj = 2;
+		}
+
+		if (*str == '\t')
+		{
+			*str = ' ';
 		}
 
 		if ((maj == 1) && (*str > 'z' || *str < 'a'))
@@ -33,6 +38,7 @@ char *cap_string(char *str)
 			maj = 0;
 		}
 
+		maj--;
 		str++;
 	}
 
