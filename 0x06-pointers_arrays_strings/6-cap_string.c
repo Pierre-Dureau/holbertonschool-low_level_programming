@@ -22,7 +22,7 @@ char *cap_string(char *str)
 			maj = 1;
 		}
 
-		if ((maj == 1) && (*str >= 'A' && *str <= 'Z'))
+		if ((maj == 1) && (*str > 'z' || *str < 'a'))
 		{
 			maj = 0;
 		}
