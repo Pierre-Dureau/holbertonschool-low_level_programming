@@ -11,9 +11,7 @@
 
 char *_strchr(char *s, char c)
 {
-	int i;
-
-	for (i = 0; *s; i++, s++)
+	for (; *s; s++)
 	{
 		if (*s == c)
 		{
@@ -21,5 +19,5 @@ char *_strchr(char *s, char c)
 		}
 	}
 
-	return ("NULL");
+	return (0);
 }
