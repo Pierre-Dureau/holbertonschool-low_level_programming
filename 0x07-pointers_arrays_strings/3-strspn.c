@@ -1,11 +1,12 @@
 #include "main.h"
 
 /**
- * @brief
+ * _strspn - Gets the length of a prefix substring
  *
- * @param s
- * @param accept
- * @return unsigned
+ * @s: The string
+ * @accept: The chars accepted
+ *
+ * Return: The length
  */
 
 unsigned int _strspn(char *s, char *accept)
@@ -23,6 +24,7 @@ unsigned int _strspn(char *s, char *accept)
 				break;
 			}
 		}
+
 		if (*accept == '\0')
 		{
 			break;
