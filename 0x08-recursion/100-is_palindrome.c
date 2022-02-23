@@ -18,7 +18,7 @@ int check(char *s, int len, int i)
 		return (1);
 
 	i++;
-	return(check(s, len, i));
+	return (check(s, len, i));
 }
 
 /**
