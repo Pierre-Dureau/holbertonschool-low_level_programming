@@ -1,5 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+
+/**
+ * isNumber - Check if a string is a number
+ *
+ * @s: The string
+ *
+ * Return: 1 if success, 0 if error
+ */
+
+int isNumber(char s[])
+{
+	int i;
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		if (isdigit(s[i]) == 0)
+			return (0);
+	}
+	return (1);
+}
 
 /**
  * findValue - find the maximal value to change
@@ -54,7 +75,7 @@ int main(int argc, char *argv[])
 {
 	if (argc != 2)
 	{
-		printf("0\n");
+		printf("Error\n");
 		return (1);
 	}
 	else
@@ -66,6 +87,11 @@ int main(int argc, char *argv[])
 
 		while (change != 0)
 		{
+			if (isNumber(coins[0]) == 0)
+			{
+				printf("Error\n");
+				return (1);
+			}
 			change = findValue(coins, change);
 		}
 		printf("%d\n", coins[0]);
