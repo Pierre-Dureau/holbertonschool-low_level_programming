@@ -62,13 +62,21 @@ int main(int argc, char *argv[])
 		int change = atoi(argv[1]);
 		int coins[1];
 
-		coins[0] = 0;
-
-		while (change != 0)
+		if (change < 0)
 		{
-			change = findValue(coins, change);
+			printf("0\n");
+			return (0);
 		}
-		printf("%d\n", coins[0]);
+		else
+		{
+			coins[0] = 0;
+
+			while (change != 0)
+			{
+				change = findValue(coins, change);
+			}
+			printf("%d\n", coins[0]);
+		}
 	}
 	return (0);
 }
