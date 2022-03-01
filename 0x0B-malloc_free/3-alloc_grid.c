@@ -2,13 +2,13 @@
 #include <stdlib.h>
 
 /**
- * free_grid - Free the grid
+ * free_gride - Free the grid
  *
  * @grid: The grid
  * @h: The height of the grid
  */
 
-void free_grid(int **grid, int h)
+void free_gride(int **grid, int h)
 {
 	int i;
 
@@ -46,7 +46,7 @@ int **alloc_grid(int width, int height)
 		grid[i] = (int *)malloc(width * sizeof(int));
 		if (grid[i] == NULL)
 		{
-			free_grid(grid, i);
+			free_gride(grid, i);
 			return (NULL);
 		}
 	}
