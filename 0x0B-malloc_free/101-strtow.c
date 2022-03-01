@@ -16,7 +16,7 @@ int lengthOfWord(char *s)
 	char *temp;
 
 	temp = s;
-	for (; *s != ' '; s++)
+	for (; *s != ' ' && *s != '\0'; s++)
 		n++;
 	s = temp;
 	return (n);
@@ -61,25 +61,30 @@ char **strtow(char *str)
 {
 	char **s;
 	char *t;
-	int i = 0, j = 0, n;
+	int i = 0, j = 0, n, ram;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
 
 	t = str;
 	n = countWord(str);
-	s = malloc(n * sizeof(char *));
+	if (n == 0)
+		return (NULL);
+	s = malloc((n + 1) * sizeof(char *));
 	if (s == NULL)
 		return (NULL);
 
 	str = t;
-	while (*str)
+	while (i < n)
 	{
 		if (*str != ' ')
 		{
-			s[i] = (char *)malloc(lengthOfWord(str) * sizeof(char));
-			for (j = 0; *str != ' '; str++, j++)
+			ram = lengthOfWord(str);
+			s[i] = (char *)malloc(ram * sizeof(char));
+
+			for (j = 0; *str != ' ' && *str != '\0'; str++, j++)
 				s[i][j] = *str;
+
 			s[i][j] = '\0';
 			i++;
 		}
