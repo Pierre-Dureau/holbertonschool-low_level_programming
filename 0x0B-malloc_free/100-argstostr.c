@@ -21,20 +21,22 @@ int _strlen(char *s)
 }
 
 /**
- * @brief
+ * argstostr - Concatenate all the arguments
  *
- * @param ac
- * @param av
- * @return char*
+ * @ac: Number of arguments
+ * @av: The arguments
+ *
+ * Return: The string concatenated
  */
 
 char *argstostr(int ac, char **av)
 {
+	char *s;
+	char *t;
+	int len, i, j;
+
 	if (ac == 0 || av == NULL)
 		return (NULL);
-
-	char *s, *t;
-	int len, i, j;
 
 	for (i = 0; i < ac; i++)
 	{
