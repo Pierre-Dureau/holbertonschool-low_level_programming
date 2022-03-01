@@ -37,21 +37,21 @@ char *_strdup(char *str)
 
 	if (len == 0)
 	{
-		return ('\0');
+		return (0);
 	}
 
 	if (str)
 	{
-		s = malloc((len + 1 ) * sizeof(char));
+		s = malloc((len + 1) * sizeof(char));
 
-		if (s == NULL)
-			return (NULL);
+		if (!s)
+			return (0);
 
 		for (i = 0; i < len; i++)
 			s[i] = str[i];
 	}
 	else
-		return (NULL);
+		return (0);
 
 	return (s);
 }
