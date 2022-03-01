@@ -43,20 +43,20 @@ char *str_concat(char *s1, char *s2)
 	if (str == NULL)
 		return (NULL);
 
-	if (s1 != NULL)
+	if (s1)
 	{
 		for (; *s1; i++, s1++)
 			str[i] = *s1;
 	}
 
-	if (s2 != NULL)
+	if (s2)
 	{
 		for (; *s2; i++, s2++)
 			str[i] = *s2;
 	}
 
-	if (s1 == NULL && s2 == NULL)
-		str[i] = '\0';
+	if (!s1 && !s2)
+		str[0] = '\0';
 
 	return (str);
 }
