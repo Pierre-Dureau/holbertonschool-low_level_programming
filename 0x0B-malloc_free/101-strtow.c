@@ -70,7 +70,7 @@ char **strtow(char *str)
 	n = countWord(str);
 	if (n == 0)
 		return (NULL);
-	s = malloc((n + 1) * sizeof(char *));
+	s = malloc(n * sizeof(char *));
 	if (s == NULL)
 		return (NULL);
 
