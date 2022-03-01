@@ -20,12 +20,12 @@ char *create_array(unsigned int size, char c)
 		buffer = malloc(size * sizeof(char));
 		for (i = 0; i < size; i++)
 			buffer[i] = c;
-		free(buffer);
 	}
 	else
 	{
 		return (NULL);
 	}
 
+	free(buffer);
 	return (buffer);
 }
