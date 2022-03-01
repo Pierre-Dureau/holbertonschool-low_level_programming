@@ -80,7 +80,7 @@ char **strtow(char *str)
 		if (*str != ' ')
 		{
 			ram = lengthOfWord(str);
-			s[i] = (char *)malloc(ram * sizeof(char));
+			s[i] = (char *)malloc((ram + 1) * sizeof(char));
 
 			for (j = 0; *str != ' ' && *str != '\0'; str++, j++)
 				s[i][j] = *str;
