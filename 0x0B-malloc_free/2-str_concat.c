@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
  * _strlen - Return the length of a string
@@ -36,19 +35,28 @@ char *str_concat(char *s1, char *s2)
 	if (s1 == NULL && s2 == NULL)
 		return (NULL);
 
-	len1 = _strlen(s1);
-	len2 = _strlen(s2);
+	if (s1)
+		len1 = _strlen(s1);
+	if (s2)
+		len2 = _strlen(s2);
+	i = 0;
 
 	str = malloc((len1 + len2 + 1) * sizeof(char));
 
 	if (str == NULL)
 		return (NULL);
 
-	for (i = 0; *s1; i++, s1++)
-		str[i] = *s1;
+	if (s1 != NULL)
+	{
+		for (; *s1; i++, s1++)
+			str[i] = *s1;
+	}
 
-	for (; *s2; i++, s2++)
-		str[i] = *s2;
+	if (s2 != NULL)
+	{
+		for (; *s2; i++, s2++)
+			str[i] = *s2;
+	}
 
 	return (str);
 }
