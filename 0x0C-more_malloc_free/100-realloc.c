@@ -6,7 +6,7 @@
  * @s: The string
  * Return: The length of s
  */
-
+/**
 int _strlen(char *s)
 {
 	int i = 0;
@@ -16,7 +16,7 @@ int _strlen(char *s)
 
 	return (i);
 }
-
+*/
 /**
  * _memcpy - Copies memory data
  *
@@ -26,7 +26,7 @@ int _strlen(char *s)
  *
  * Return: The buffer dest
  */
-
+/**
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int i;
@@ -39,7 +39,7 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 
 	return (t);
 }
-
+*/
 /**
  * _realloc - Reallocates a memory block using malloc and free
  *
@@ -52,42 +52,21 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	char *scp;
-
 	if (old_size == new_size)
 		return (ptr);
+	if (!ptr)
+		return (malloc(new_size));
 	if (old_size == 0)
 	{
 		ptr = malloc(new_size);
 		return (ptr);
 	}
-	if (new_size == 0 && !ptr)
+	if (new_size == 0 && ptr)
 	{
 		free(ptr);
 		return (ptr);
 	}
-	if (old_size > new_size)
-	{
-		scp = malloc(new_size);
-		if (scp == NULL)
-			return (NULL);
-		_memcpy(scp, ptr, new_size);
-		ptr = malloc(new_size);
-		if (ptr == NULL)
-			return (NULL);
-		_memcpy(ptr, scp, new_size);
-		return (ptr);
-	}
-	else
-	{
-		scp = malloc(old_size);
-		if (scp == NULL)
-			return (NULL);
-		_memcpy(scp, ptr, old_size);
-		ptr = malloc(new_size);
-		if (ptr == NULL)
-			return (NULL);
-		_memcpy(ptr, scp, old_size);
-		return (ptr);
-	}
+
+	ptr = malloc(new_size);
+	return (ptr);
 }
