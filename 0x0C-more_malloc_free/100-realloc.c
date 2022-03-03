@@ -18,29 +18,6 @@ int _strlen(char *s)
 }
 
 /**
- * _strcpy - Copy a string
- *
- * @dest: The new same string
- * @src: The string copied
- *
- * Return: A copy of a string
- */
-
-char *_strcpy(char *dest, char *src)
-{
-	int i, len;
-
-	len = _strlen(src);
-
-	for (i = 0; i < len; i++)
-	{
-		dest[i] = src[i];
-	}
-
-	return (dest);
-}
-
-/**
  * _memcpy - Copies memory data
  *
  * @dest: The buffer
@@ -94,12 +71,12 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		scp = malloc(new_size);
 		if (scp == NULL)
 			return (NULL);
-		_memcpy(scp, ptr, (int)new_size);
+		_memcpy(scp, ptr, new_size);
 		free(ptr);
 		ptr = malloc(new_size);
 		if (ptr == NULL)
 			return (NULL);
-		_strcpy(ptr, scp);
+		_memcpy(ptr, scp, new_size);
 		return (ptr);
 	}
 	else
@@ -107,7 +84,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		scp = malloc(old_size);
 		if (scp == NULL)
 			return (NULL);
-		_strcpy(scp, ptr);
+		_memcpy(scp, ptr, old_size);
 		free(ptr);
 		ptr = malloc(new_size);
 		if (ptr == NULL)
