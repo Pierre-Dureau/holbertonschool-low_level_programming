@@ -2,22 +2,6 @@
 #include <stdlib.h>
 
 /**
- * _strlen - Return the length of a string
- * @s: The string
- * Return: The length of s
- */
-/**
-int _strlen(char *s)
-{
-	int i = 0;
-
-	while (s[i] != '\0')
-		i++;
-
-	return (i);
-}
-*/
-/**
  * _memcpy - Copies memory data
  *
  * @dest: The buffer
@@ -26,7 +10,7 @@ int _strlen(char *s)
  *
  * Return: The buffer dest
  */
-/**
+
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int i;
@@ -39,7 +23,7 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 
 	return (t);
 }
-*/
+
 /**
  * _realloc - Reallocates a memory block using malloc and free
  *
@@ -52,6 +36,9 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
+	char *strcp;
+	unsigned int good_size;
+
 	if (old_size == new_size)
 		return (ptr);
 	if (!ptr)
@@ -67,6 +54,14 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		return (ptr);
 	}
 
-	ptr = malloc(new_size);
-	return (ptr);
+	strcp = malloc(new_size);
+	if (old_size > new_size)
+		good_size = new_size;
+	else
+		good_size = old_size;
+
+	_memcpy(strcp, ptr, good_size);
+	free(ptr);
+
+	return (strcp);
 }
