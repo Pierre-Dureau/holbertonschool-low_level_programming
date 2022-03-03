@@ -55,6 +55,8 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	}
 
 	strcp = malloc(new_size);
+	if (strcp == NULL)
+		return (NULL);
 	if (old_size > new_size)
 		good_size = new_size;
 	else
