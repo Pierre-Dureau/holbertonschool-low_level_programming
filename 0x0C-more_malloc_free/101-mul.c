@@ -77,7 +77,7 @@ void resetTab(char *tab, int size)
 {
 	int i;
 
-	for (i = 0; i < size - 1; i++)
+	for (i = 0; i < size; i++)
 	{
 		tab[i] = '0';
 	}
@@ -234,7 +234,6 @@ int main(int argc, char **argv)
 		if (tabC == NULL)
 			return (0);
 		resetTab(tabC, size);
-
 		tabC = mulNum(argv[1], argv[2], tabR, tabC, size);
 		_puts(tabC);
 	}
