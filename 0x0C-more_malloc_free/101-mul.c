@@ -216,20 +216,27 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 
-	len1 = _strlen(argv[1]);
-	len2 = _strlen(argv[2]);
-	size = len1 + len2;
-	tabR = malloc(size * sizeof(char));
-	if (tabR == NULL)
-		return (0);
-	resetTab(tabR, size);
-	tabC = malloc(size * sizeof(char));
-	if (tabC == NULL)
-		return (0);
-	resetTab(tabC, size);
+	if (atoi(argv[1]) == 0 || atoi(argv[2]) == 0)
+	{
+		_putchar('0');
+		_putchar('\n');
+	}
+	else
+	{
+		len1 = _strlen(argv[1]);
+		len2 = _strlen(argv[2]);
+		size = len1 + len2;
+		tabR = malloc(size * sizeof(char));
+		if (tabR == NULL)
+			return (0);
+		resetTab(tabR, size);
+		tabC = malloc(size * sizeof(char));
+		if (tabC == NULL)
+			return (0);
+		resetTab(tabC, size);
 
-	tabC = mulNum(argv[1], argv[2], tabR, tabC, size);
-	_puts(tabC);
-
+		tabC = mulNum(argv[1], argv[2], tabR, tabC, size);
+		_puts(tabC);
+	}
 	return (0);
 }
