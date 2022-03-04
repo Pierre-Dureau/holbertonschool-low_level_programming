@@ -5,7 +5,6 @@
  * decaleString - Decale a string to the left
  *
  * @s: The string
- * @i: Number of 0
  *
  * Return: The string
  */
