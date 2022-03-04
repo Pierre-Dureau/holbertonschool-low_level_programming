@@ -22,6 +22,7 @@ char *decaleString(char *s)
 		*(s - 1) = *s;
 		s++;
 	}
+	*s = '\0';
 	*(s - 1) = '\0';
 	s = t;
 
@@ -210,6 +211,7 @@ char *mulNum(char *n1, char *n2, char *r, char *count, int size)
 		}
 		if (diz > 0)
 			addZero(r, diz);
+		decaleString(r);
 		count = addNum(count, r);
 		resetTab(r, temp);
 		diz++;
