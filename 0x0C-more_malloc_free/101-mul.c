@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * decaleString - Multiply a string by 10
+ * decaleString - Decale a string to the left
  *
  * @s: The string
  * @i: Number of 0
@@ -10,7 +10,35 @@
  * Return: The string
  */
 
-char *decaleString(char *s, int i)
+char *decaleString(char *s)
+{
+	char *t;
+
+	t = s;
+
+	while (*s != '0')
+		s++;
+	while (*s >= '0' && *s <= '9')
+	{
+		*(s - 1) = *s;
+		s++;
+	}
+	*(s - 1) = '\0';
+	s = t;
+
+	return (t);
+}
+
+/**
+ * addZero - Multiply a string by 10
+ *
+ * @s: The string
+ * @i: Number of 0
+ *
+ * Return: The string
+ */
+
+char *addZero(char *s, int i)
 {
 	char *t;
 
@@ -147,9 +175,8 @@ char *addNum(char *c, char *n)
 		r[i] = res % 10 + '0';
 	}
 	if (retenu > 0)
-	{
 		r[i] = retenu + '0';
-	}
+	decaleString(r);
 	return (r);
 }
 
@@ -183,7 +210,7 @@ char *mulNum(char *n1, char *n2, char *r, char *count, int size)
 			r[size] = retenu + '0';
 		}
 		if (diz > 0)
-			decaleString(r, diz);
+			addZero(r, diz);
 		count = addNum(count, r);
 		resetTab(r, temp);
 		diz++;
