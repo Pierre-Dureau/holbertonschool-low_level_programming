@@ -38,19 +38,16 @@ char *_strdup(char *str)
 
 	len = _strlen(str);
 
-	if (str)
-	{
-		s = malloc((len + 1) * sizeof(char));
 
-		if (s == NULL)
-			return (NULL);
+	s = malloc((len + 1) * sizeof(char));
 
-		for (i = 0; i < len; i++)
-			s[i] = str[i];
-		s[i] = '\0';
-	}
-	else
-		return (0);
+	if (s == NULL)
+		return (NULL);
+
+	for (i = 0; i < len; i++)
+		s[i] = str[i];
+	s[i] = '\0';
+
 
 	return (s);
 }
