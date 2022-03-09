@@ -20,7 +20,6 @@ int main(int argc, char **argv)
 		int (*ptr)(int, int) = get_op_func(argv[2]);
 		int num1 = atoi(argv[1]);
 		int num2 = atoi(argv[3]);
-		char c = *argv[2];
 
 		if (ptr == NULL)
 		{
@@ -28,7 +27,7 @@ int main(int argc, char **argv)
 			exit(99);
 		}
 
-		if ((c == '/' || c == '%') && num2 == 0)
+		if ((ptr == op_div || ptr == op_mod) && num2 == 0)
 		{
 			printf("Error\n");
 			exit(100);
