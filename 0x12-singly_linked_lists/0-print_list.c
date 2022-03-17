@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * print_list
+ * print_list - Print string et length of the string of each element
  *
  * @h: The head of the linked list
  * Return: Number of struct in the list
