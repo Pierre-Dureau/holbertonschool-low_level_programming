@@ -9,24 +9,29 @@
 
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *t = head;
-	address_t *addr = NULL;
+	listint_t *p1 = head, *p2 = head;
 
 	if (!head)
 		return (NULL);
+	if (head == head->next)
+		return (head);
 
-	while (t)
+	while (p1 && p1->next)
 	{
-		add_nodeaddr(&addr, t);
-		t = t->next;
+		p1 = p1->next->next;
+		p2 = p2->next;
 
-		if (compareAddr(addr, t) != NULL)
+		if (p1 == p2)
 		{
-			free_addr(&addr);
-			return (t);
+			p2 = head;
+			while (p1 != p2)
+			{
+				p1 = p1->next;
+				p2 = p2->next;
+			}
+			return (p1);
 		}
 	}
 
-	free_addr(&addr);
 	return (NULL);
 }
