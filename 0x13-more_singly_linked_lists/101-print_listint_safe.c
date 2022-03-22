@@ -78,23 +78,21 @@ address_t *add_nodeaddr(address_t **head, void *a)
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t count = 0;
-	listint_t *t;
 	address_t *addr = NULL;
 
 	if (!head)
 		exit(98);
 
-	t = (listint_t *)head;
-	while (t)
+	while (head)
 	{
-		printf("[%p] %d\n", (void *)t, t->n);
-		add_nodeaddr(&addr, t);
-		t = t->next;
+		printf("[%p] %d\n", (void *)head, head->n);
+		add_nodeaddr(&addr, (void *)head);
+		head = head->next;
 		count++;
 
-		if (compareAddr(addr, t) != NULL)
+		if (compareAddr(addr, (void *)head) != NULL)
 		{
-			printf("-> [%p] %d\n", (void *)t, t->n);
+			printf("-> [%p] %d\n", (void *)head, head->n);
 			break;
 		}
 	}
