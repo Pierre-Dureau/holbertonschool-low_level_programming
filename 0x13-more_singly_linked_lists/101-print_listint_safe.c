@@ -8,16 +8,21 @@
 
 void free_addr(address_t **head)
 {
-	address_t *t = *head;
-
-	while (*head)
+	if (head)
 	{
-		t = (*head)->next;
-		free(*head);
-		*head = t;
-	}
+		address_t *t;
 
-	*head = NULL;
+		t = *head;
+
+		while (*head)
+		{
+			t = (*head)->next;
+			free(*head);
+			*head = t;
+		}
+
+		*head = NULL;
+	}
 }
 
 /**
@@ -73,7 +78,7 @@ address_t *add_nodeaddr(address_t **head, void *a)
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t count = 0;
-	listint_t *t, *p;
+	listint_t *t;
 	address_t *addr = NULL;
 
 	if (!head)
@@ -82,12 +87,10 @@ size_t print_listint_safe(const listint_t *head)
 	t = (listint_t *)head;
 	while (t)
 	{
-		p = t;
 		printf("[%p] %d\n", (void *)t, t->n);
 		add_nodeaddr(&addr, t);
 		t = t->next;
 		count++;
-		free(p);
 
 		if (compareAddr(addr, t) != NULL)
 		{
