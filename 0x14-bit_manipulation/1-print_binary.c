@@ -8,22 +8,7 @@
 
 void print_binary(unsigned long int n)
 {
-	unsigned long int i = 2147483648;
-	int check = 0;
-
-	if (n == 0)
-		_putchar('0');
-
-	while (i)
-	{
-		if (n & i)
-		{
-			_putchar('1');
-			check = 1;
-		}
-		else if (check == 1)
-			_putchar('0');
-
-		i >>= 1;
-	}
+	if (n > 1)
+		print_binary(n >> 1);
+	_putchar((n & 1) + '0');
 }
