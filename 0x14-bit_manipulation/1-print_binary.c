@@ -8,7 +8,7 @@
 
 void print_binary(unsigned long int n)
 {
-	unsigned long int i = 524288;
+	unsigned long int i = 4294967295;
 	int check = 0;
 
 	if (n == 0)
