@@ -19,7 +19,7 @@ int main(int ac, char **av)
 		exit(97);
 	}
 	fd1 = open(av[1], O_RDONLY);
-	if (fd1 < 0)
+	if (fd1 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
@@ -28,26 +28,26 @@ int main(int ac, char **av)
 	while ((r = read(fd1, buf, 1024)) > 0)
 	{
 		w = write(fd2, buf, r);
-		if (w != r || fd2 < 0)
+		if (w != r || fd2 == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			exit(99);
 		}
 	}
-	if (r < 0)
+	if (r == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
 	c1 = close(fd1);
 	c2 = close(fd2);
-	if (c1 < 0 || c2 < 0)
+	if (c1 == -1 || c2 == -1)
 	{
-		if (c1 < 0)
+		if (c1 == -1)
 			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
-		if (c2 < 0)
+		if (c2 == -1)
 			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
 		exit(100);
 	}
-	return (1);
+	return (0);
 }
