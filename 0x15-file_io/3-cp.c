@@ -10,7 +10,7 @@
 
 int main(int ac, char **av)
 {
-	int fd1, fd2, r, w, c1, c2;
+	int fd1, fd2, r, c1, c2;
 	char buf[1024];
 
 	if (ac != 3)
@@ -27,8 +27,7 @@ int main(int ac, char **av)
 	fd2 = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	while ((r = read(fd1, buf, 1024)) > 0)
 	{
-		w = write(fd2, buf, r);
-		if (w != r || fd2 == -1)
+		if (write(fd2, buf, r) != r || fd2 == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			exit(99);
