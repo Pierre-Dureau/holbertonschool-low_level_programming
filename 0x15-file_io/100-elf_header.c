@@ -239,7 +239,8 @@ int main(int argc, char **argv)
 		if (n == -1)
 			exit_msg("Error: Can't read the header of the requested file");
 		print_file(header);
-		close(fd);
+		if (close(fd) != 0)
+			handle_exit("Error: Can't close the current file directory");
 		free(header);
 		return (0);
 	}
