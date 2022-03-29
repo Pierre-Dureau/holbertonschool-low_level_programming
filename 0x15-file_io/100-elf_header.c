@@ -65,6 +65,8 @@ void print_class(unsigned char c)
 		printf("ELF32");
 	else if (c == ELFCLASS64)
 		printf("ELF64");
+	else
+		printf("<unknown: %x>", c);
 	printf("\n");
 }
 
@@ -83,6 +85,8 @@ void print_data(unsigned char c)
 		printf("2's complement, little endian");
 	else if (c == ELFDATA2MSB)
 		printf("2's complement, big endian");
+	else
+		printf("<unknown: %x>", c);
 	printf("\n");
 }
 
@@ -99,6 +103,8 @@ void print_version(unsigned char c)
 		printf("(invalid)");
 	else if (c == EV_CURRENT)
 		printf("%d (current)", c);
+	else
+		printf("<unknown: %x>", c);
 	printf("\n");
 }
 
@@ -131,6 +137,8 @@ void print_osabi(unsigned char c)
 		printf("Unix - ARM");
 	else if (c == ELFOSABI_STANDALONE)
 		printf("Unix - Stand-alone");
+	else
+		printf("<unknown: %x>", c);
 	printf("\n");
 }
 
@@ -158,6 +166,8 @@ void print_type(unsigned char c, int be)
 		printf("DYN (Shared object file)");
 	else if (c == ET_CORE)
 		printf("CORE (Core file)");
+	else
+		printf("<unknown: %x>", c);
 	printf("\n");
 }
 
