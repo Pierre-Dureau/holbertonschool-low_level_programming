@@ -235,12 +235,13 @@ int main(int argc, char **argv)
 
 	if (header && fd != -1)
 	{
+		if (lseek(fd, 0, SEEK_SET) != 0)
+			exit_msg("Error: Can't find the header of the requested file");
 		n = read(fd, header, sizeof(Elf32_Ehdr));
 		if (n == -1)
 			exit_msg("Error: Can't read the header of the requested file");
 		print_file(header);
-		if (close(fd) != 0)
-			exit_msg("Error: Can't close the current file directory");
+		close(fd);
 		free(header);
 		return (0);
 	}
