@@ -104,7 +104,7 @@ void print_version(unsigned char c)
 	else if (c == EV_CURRENT)
 		printf("%d (current)", c);
 	else
-		printf("<unknown: %x>", c);
+		printf("%d", c);
 	printf("\n");
 }
 
@@ -132,7 +132,7 @@ void print_osabi(unsigned char c)
 	else if (c == ELFOSABI_FREEBSD)
 		printf("Unix - FreeBSD");
 	else if (c == ELFOSABI_TRU64)
-		printf("Unix - TRU64 UNIX");
+		printf("Unix - TRU64");
 	else if (c == ELFOSABI_ARM)
 		printf("Unix - ARM");
 	else if (c == ELFOSABI_STANDALONE)
@@ -235,8 +235,6 @@ int main(int argc, char **argv)
 
 	if (header && fd != -1)
 	{
-		if (lseek(fd, 0, SEEK_SET) != 0)
-			exit_msg("Error: Can't find the header of the requested file");
 		n = read(fd, header, sizeof(Elf32_Ehdr));
 		if (n == -1)
 			exit_msg("Error: Can't read the header of the requested file");
