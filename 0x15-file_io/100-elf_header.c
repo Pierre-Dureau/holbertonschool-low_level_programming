@@ -43,9 +43,9 @@ void print_magic(Elf32_Ehdr *h)
 	while (i < EI_NIDENT)
 	{
 		printf("%02x", h->e_ident[i]);
+		i++;
 		if (i != EI_NIDENT)
 			printf(" ");
-		i++;
 	}
 	printf("\n");
 }
