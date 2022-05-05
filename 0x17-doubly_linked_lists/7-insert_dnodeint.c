@@ -35,7 +35,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		t = t->next;
 		i++;
 	}
-	printf("T>%d\n", t->n);
 	if (i == idx - 1 && t)
 	{
 		t2 = t->next;
