@@ -1,5 +1,12 @@
 #include "lists.h"
 
+/**
+ * print_dlistint - Print double linked list
+ *
+ * @h: head of the list
+ * Return: Size of the list
+ */
+
 size_t print_dlistint(const dlistint_t *h)
 {
 	size_t count = 0;
