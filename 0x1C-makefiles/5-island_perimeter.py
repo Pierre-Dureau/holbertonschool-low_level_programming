@@ -3,6 +3,7 @@
     Module for the funtion island_perimeter
 """
 
+
 def island_perimeter(grid):
     """returns the perimeter of the island described in grid"""
     count = 0
@@ -17,5 +18,4 @@ def island_perimeter(grid):
                     count += 1
                 if j == 0 or grid[i][j - 1] == 0:
                     count += 1
-
     return count
