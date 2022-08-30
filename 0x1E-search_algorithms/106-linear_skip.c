@@ -12,6 +12,9 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 {
 	skiplist_t *node = list, *temp = list;
 
+	if (!list)
+		return (NULL);
+
 	while (node && node->express)
 	{
 		node = node->express;
