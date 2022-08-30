@@ -15,12 +15,12 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 	if (!list)
 		return (NULL);
 
-	while (node->next && node->express)
+	while (node && node->express)
 	{
 		node = node->express;
 		if (node)
 			printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
-		if (node && value < node->n)
+		if (node && value <= node->n)
 			break;
 		temp = node;
 	}
