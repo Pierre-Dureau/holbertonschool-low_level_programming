@@ -27,12 +27,17 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 	if (temp == node)
 	{
 		while (node->next)
+		{
+			if (node->n == value)
+				break;
 			node = node->next;
+		}
+
 	}
 	printf("Value found between indexes [%ld] and [%ld]\n",
 	temp->index, node->index);
 
-	while (temp && temp != node->next)
+	while (temp)
 	{
 		printf("Value checked at index [%ld] = [%d]\n", temp->index, temp->n);
 		if (value == temp->n)
