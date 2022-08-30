@@ -81,7 +81,11 @@ size_t print_listint_safe(const listint_t *head)
 	address_t *addr = NULL;
 
 	if (!head)
+	{
+		printf("0\n");
 		exit(98);
+	}
+
 
 	while (head)
 	{
