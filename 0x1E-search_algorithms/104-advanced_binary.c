@@ -42,7 +42,7 @@ int search(int *array, size_t size, int value, size_t left, size_t right)
 		return (-1);
 
 	if (value < array[middle])
-		return (search(array, size, value, left, middle - 1));
+		return (search(array, size, value, left, middle));
 	else
 		return (search(array, size, value, middle + 1, right));
 }
