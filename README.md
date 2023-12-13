@@ -1,5 +1,16 @@
 # holbertonschool-low_level_programming
 
+<p align="center">
+  <img src="https://www.articlering.com/wp-content/uploads/2021/08/c-programming.png">
+</p>
+
+## What is this repository for ?
+
+This repository is the first step in programmation in Holberton.
+It covers all the basics in the C language and extend to more complex exercise.
+
+## Projects
+
 * [0x00. C - Hello, World](./0x00-hello_world/)
 * [0x01. C - Variables, if, else, while](./0x01-variables_if_else_while/)
 * [0x02. C - Functions, nested loops](./0x02-functions_nested_loops/)
